@@ -18,6 +18,14 @@ security:
             anonymous: true
             lazy: true
             provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # Należy podać nazwę 'name' routa, nie jego wartość, typu /przyklad, tylko tak jak jest ponizej
+                target: is_granted
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
